@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {Home} from "./pages/Home/Home";
+import AlataRegular from "./assets/fonts/Alata-Regular.ttf"
+import {useFonts} from "expo-font";
+import {NavigationContainer} from "@react-navigation/native";
+import CreateNativeStackNavigator from "@react-navigation/native-stack/src/navigators/createNativeStackNavigator";
+import {Forecast} from "./pages/Forecast/Forecast";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+const Stack = CreateNativeStackNavigator()
+
+const navTheme = {
+    colors: {
+        background: "transparent"
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+    const [isFontLoaded] = useFonts({
+        "Alata-Regular": AlataRegular
+    })
+    return (
+        <NavigationContainer theme={navTheme}>
+                        {isFontLoaded ? (<Stack.Navigator screenOptions={{headerShown: false, animation:"fade_from_bottom"}} initialRouteName="Home">
+                            <Stack.Screen name="Home" component={Home}/>
+                            <Stack.Screen name="Forecast" component={Forecast}/>
+                        </Stack.Navigator> ): null}
+        </NavigationContainer>
+    );
+}

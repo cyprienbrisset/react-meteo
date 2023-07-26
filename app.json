@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "meteo",
-    "slug": "meteo",
+    "slug": "meteo-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,24 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "com.anamentis.meteoapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e59054d3-1099-4762-b528-939ff4114728"
+      }
+    },
+    "owner": "anamentis",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/e59054d3-1099-4762-b528-939ff4114728"
     }
   }
 }
